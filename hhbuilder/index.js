@@ -8,7 +8,7 @@ function householdPerson(age, relationship, smoker){
   var element = document.createElement("li");
   var personAge = age;
   var personRelationship = relationship.charAt(0).toUpperCase() + relationship.slice(1);
-  var isSmoker = (smoker) ? "Smoker" : "Non-smoker";
+  var isSmoker = (smoker) ? "Smoker " : "Non-smoker ";
   var personData = personAge + ", " + personRelationship + ", " + isSmoker + " ";
   element.appendChild(document.createTextNode(personData));
   var deleteButton = document.createElement("button");
@@ -63,11 +63,20 @@ document.addEventListener("submit", function(event){
     var editButton = document.createElement("button");
     editButton.setAttribute("class", "edit");
     editButton.appendChild(document.createTextNode("edit"));
+    var inputField = document.createElement("input");
+    inputField.setAttribute("type", "text");
+    var editSubmit = document.createElement("input");
+    editSubmit.setAttribute("type", "submit");
+    editSubmit.onclick = function(age){
+      this.age.toString().push();
+    }
     editButton.onclick = function editAge(age, newAge){
-      for (var i=0; i<householdArray.length; i++) {
+      displayList.appendChild(inputField);
+      displayList.appendChild(editSubmit);
+      for (var i = 0; i < householdArray.length; i++) {
         if (householdArray[i].age === age) {
-          householdArray[i].age = newAge;
-            break;
+            householdArray[i].age = newAge;
+            return;
     }
   }
 }
@@ -76,5 +85,3 @@ document.addEventListener("submit", function(event){
     householdArray = [];
   }
 });
-
-editAge("34", "54");
