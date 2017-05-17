@@ -61,21 +61,20 @@ document.addEventListener("submit", function(event){
     var stringified = JSON.stringify;
     displayList.appendChild(document.createTextNode(stringified(householdArray)));
     var editButton = document.createElement("button");
-    var editForm = document.createElement("form");
-    var input = document.createElement("input");
-    // var submitButton = document.createElement("[type=submit]")
     editButton.setAttribute("class", "edit");
     editButton.appendChild(document.createTextNode("edit"));
-    editButton.onclick = function(householdArray, editForm, editInput){
-      editForm.action = "/" + page;
-      input.householdArray.age = age.value;
-      input.householdArray.relationship = relationship.value;
-      input.householdArray.smoker = smoker.value;
-      // element.form.action = '/' + page;
-      // displayList.appendChild(submitButton);
-    };
+    editButton.onclick = function editAge(age, newAge){
+      for (var i=0; i<householdArray.length; i++) {
+        if (householdArray[i].age === age) {
+          householdArray[i].age = newAge;
+            break;
+    }
+  }
+}
     displayList.appendChild(editButton);
     displayList.style.display = 'block';
     householdArray = [];
   }
 });
+
+editAge("34", "54");
