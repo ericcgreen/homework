@@ -59,7 +59,22 @@ document.addEventListener("submit", function(event){
   if(householdArray.length > 0){
     var displayList = document.getElementsByClassName("debug")[0];
     var stringified = JSON.stringify;
-    displayList.appendChild(document.createTextNode(stringified(householdArray)+ "\n"));
+    displayList.appendChild(document.createTextNode(stringified(householdArray)));
+    var editButton = document.createElement("button");
+    var editForm = document.createElement("form");
+    var input = document.createElement("input");
+    // var submitButton = document.createElement("[type=submit]")
+    editButton.setAttribute("class", "edit");
+    editButton.appendChild(document.createTextNode("edit"));
+    editButton.onclick = function(householdArray, editForm, editInput){
+      editForm.action = "/" + page;
+      input.householdArray.age = age.value;
+      input.householdArray.relationship = relationship.value;
+      input.householdArray.smoker = smoker.value;
+      // element.form.action = '/' + page;
+      // displayList.appendChild(submitButton);
+    };
+    displayList.appendChild(editButton);
     displayList.style.display = 'block';
     householdArray = [];
   }
