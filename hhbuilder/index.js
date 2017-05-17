@@ -59,7 +59,7 @@ document.addEventListener("submit", function(event){
   if(householdArray.length > 0){
     var displayList = document.getElementsByClassName("debug")[0];
     var stringified = JSON.stringify;
-    displayList.appendChild(document.createTextNode(stringified(householdArray)));
+    displayList.appendChild(document.createTextNode(stringified(householdArray)+ "\n"));
     displayList.style.display = 'block';
     householdArray = [];
   }
