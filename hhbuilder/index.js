@@ -8,7 +8,7 @@ function householdPerson(age, relationship, smoker){
   var element = document.createElement("li");
   var personAge = age;
   var personRelationship = relationship.charAt(0).toUpperCase() + relationship.slice(1);
-  var isSmoker = (smoker) ? "Smoker " : "Non-smoker ";
+  var isSmoker = (smoker) ? "Smoker" : "Non-smoker";
   var personData = personAge + ", " + personRelationship + ", " + isSmoker + " ";
   element.appendChild(document.createTextNode(personData));
   var deleteButton = document.createElement("button");
